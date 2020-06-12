@@ -1,0 +1,6 @@
+* non-jedi .emacs.d
+
+This is a mirror of my emacs config. It is not the primary source but
+is provided to satisfy people's curiousity. It will only be updated
+upon request (I can be contacted using matrix at
+[[https://matrix.to/#/@adam:thebeckmeyers.xyz][@adam:thebeckmeyers.xyz]]).
