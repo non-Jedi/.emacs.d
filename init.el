@@ -23,23 +23,16 @@
                 (getenv "PATH")))
 (setenv "TEXMFHOME" "/home/adam/.local/share/texlive/2020")
 (setenv "EDITOR" "emacsclient")
-(add-to-list 'exec-path "/opt/texlive/2019/bin/x86_64-linux")
+(add-to-list 'exec-path "/opt/texlive/2020/bin/x86_64-linux")
 (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin"))
 
 ;; general appearance and behavior customization
 (straight-use-package 'mixed-pitch)
-(setq-default tab-width 4
-              indent-tabs-mode nil
-              display-line-numbers 'relative
-              display-line-numbers-width-start t)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(global-whitespace-mode 1)
 
 (defun my/frame-setup (&optional frame)
   (when frame (select-frame frame))
   (when (window-system)
-    (set-face-attribute 'default nil :family "Fira Code" :height 80)
+    (set-face-attribute 'default nil :family "Iosevka" :height 80)
     (set-face-attribute 'variable-pitch nil :family "Vollkorn" :height 95)
     ;; Force Symbola for "Mathematical Alphanumeric Symbols" unicode block
     (set-fontset-font t '(?𝐀 . ?𝔇) "Symbola")
@@ -69,12 +62,6 @@
 (straight-use-package 'counsel)
 (ivy-mode 1)
 (counsel-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-
-;; globally enable sane paren behavior
-(electric-pair-mode nil)
-(show-paren-mode nil)
 
 ;; Enable jumping around buffer
 (straight-use-package 'avy)
@@ -224,27 +211,33 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(c-default-style
-   (quote
-    ((c-mode . "stroustrup")
-     (other . "stroustrup"))))
+ '(c-default-style (quote ((c-mode . "stroustrup") (other . "stroustrup"))))
  '(custom-safe-themes
    (quote
     ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "09c6d2f5114b42dc9522856de47d9dc331acd051011e451c8402ea2174d22d56" "ed91d4e59412defda16b551eb705213773531f30eb95b69319ecd142fab118ca" default)))
  '(describe-char-unidata-list
    (quote
     (name old-name general-category canonical-combining-class decomposition numeric-value)))
- '(even-window-sizes nil)
+ '(display-line-numbers (quote relative))
+ '(electric-pair-mode t)
+ '(enable-recursive-minibuffers t)
+ '(global-whitespace-mode t)
+ '(global-whitespace-newline-mode t)
+ '(indent-tabs-mode nil)
  '(ivy-do-completion-in-region nil)
+ '(ivy-use-virtual-buffers t)
  '(julia-force-tab-complete nil)
+ '(menu-bar-mode nil)
  '(org-image-actual-width nil)
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-docview org-eww org-gnus org-info org-irc org-mhe org-rmail org-tempo org-w3m)))
  '(pdf-misc-print-programm "/usr/bin/lpr")
- '(pop-up-windows nil)
  '(reb-re-syntax (quote rx))
+ '(show-paren-mode t)
  '(tab-always-indent (quote complete))
+ '(tab-width 4)
+ '(tool-bar-mode nil)
  '(whitespace-style (quote (face trailing tabs empty tab-mark))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
